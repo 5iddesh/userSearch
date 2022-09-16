@@ -3,7 +3,7 @@ const userInput = document.querySelector('.user-input input');
 let cache = [];
 
 async function getUser(){
-    let usersDetails = await fetch('https://randomuser.me/api?results=100');
+    let usersDetails = await fetch('https://randomuser.me/api?results=10');
     let response = await usersDetails.json();
     users.innerHTML = '';
     for(let i=0; i<(response.results?response.results.length:0); i++){
@@ -60,6 +60,14 @@ function filterRevert(event) {
         if(userInput.value.length < 2 ){
             cache.forEach(a =>{
                 users.append(a)
+            })
+        }else{
+            cache.forEach((user, index) => {
+                if(user.innerText.toLowerCase().includes(userInput.value.toLowerCase())){
+                    users.append(user)
+                    users.append(cache[index+1])
+                    users.append(cache[index+2])
+                }
             })
         }
     }
