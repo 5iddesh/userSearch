@@ -3,7 +3,7 @@ const userInput = document.querySelector('.user-input input');
 let cache = [];
 
 async function getUser(){
-    let usersDetails = await fetch('https://randomuser.me/api?results=10');
+    let usersDetails = await fetch('https://randomuser.me/api?results=100');
     let response = await usersDetails.json();
     users.innerHTML = '';
     for(let i=0; i<(response.results?response.results.length:0); i++){
