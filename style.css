@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main{
+    width: 280px;
+    height: 500px;
+    margin: 100px auto;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.bg-blue{
+    background-color:  #3E57DB;
+    padding-left: 20px;
+    padding-top: 20px;
+    border-radius: 5px 5px 0 0;
+}
+.bg-blue .title{
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.bg-blue .hint{
+    font-size: 15px;
+    font-weight: lighter;
+    color: white;
+    opacity: 0.7;
+}
+.bg-blue .user-input input{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    margin: 15px 0;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.users{
+    list-style-type: none;
+    overflow-y: scroll;
+    border-radius: 5px;
+    height: 370px;
+    position: relative;
+    padding-top: 10px;
+    box-shadow: 5px 5px 10px 3px lightgray;
+    border: none;
+}
+.users li{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.users .photo img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.users .details{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    column-gap: 10px;
+    text-align: left;
+    width: 150px;
+}
+.users .details .name{
+    font-size: medium;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+.users .details .location{
+    font-size: medium;
+    font-weight: normal;
+}
+.users hr{
+    border-top: 0.2px solid rgba(255, 10, 10, 0.1);
+    display: block;
+}
+
+
+#loader {
+    text-align: center;
+    background-color: #fff;
+    font-size: 30px;
+    font-weight: bolder;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+  }
+  
