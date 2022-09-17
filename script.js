@@ -1,6 +1,5 @@
 const users = document.querySelector('.users');
 const userInput = document.querySelector('.user-input input');
-let cache = [];
 
 async function getUser(){
     let usersDetails = await fetch('https://randomuser.me/api?results=100');
@@ -28,17 +27,14 @@ async function getUser(){
         user1.append(divPhoto);
         user1.append(divDetails)
 
-        let line = document.createElement('hr')
-        let space = document.createElement('br')
         users.append(user1);
-        users.append(space)
-        users.append(line)
         
     }
 
 }
 getUser()
 
+let removedUsers = [];
 function filter(event){
     let inputVal = userInput.value + event;
     let result = document.querySelectorAll(".users li");
@@ -46,27 +42,21 @@ function filter(event){
         if(!li.querySelector('.name').innerText.toLowerCase().includes(inputVal.toLowerCase()) && 
             !li.querySelector('.location').innerText.toLowerCase().includes(inputVal.toLowerCase())
         ){
-            cache.push(li)
-            cache.push(li.nextElementSibling)
-            cache.push(li.nextElementSibling.nextElementSibling)
-            if(li.nextElementSibling) li.nextElementSibling.remove();
-            if(li.nextElementSibling) li.nextElementSibling.remove();
-            li.remove()
+            removedUsers.push(li)
+            li.remove();
         } 
     })
 }
 function filterRevert(event) {
     if(event == 'Backspace'){
         if(userInput.value.length < 2 ){
-            cache.forEach(a =>{
-                users.append(a)
-            })
+            removedUsers.forEach(user => {
+                    users.append(user);
+                })
         }else{
-            cache.forEach((user, index) => {
+            removedUsers.forEach((user, index) => {
                 if(user.innerText.toLowerCase().includes(userInput.value.toLowerCase())){
-                    users.append(user)
-                    users.append(cache[index+1])
-                    users.append(cache[index+2])
+                    users.append(user);
                 }
             })
         }

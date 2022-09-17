@@ -54,12 +54,13 @@
     position: relative;
     padding-top: 10px;
     box-shadow: 5px 5px 10px 3px lightgray;
-    border: none;
 }
 .users li{
     padding-top: 20px;
     display: flex;
     justify-content: space-around;
+    padding-bottom: 20px;
+    border-bottom: 0.2px solid rgba(255, 10, 10, 0.1);
 }
 .users .photo img{
     border-radius: 50%;
@@ -83,11 +84,6 @@
     font-size: medium;
     font-weight: normal;
 }
-.users hr{
-    border-top: 0.2px solid rgba(255, 10, 10, 0.1);
-    display: block;
-}
-
 
 #loader {
     text-align: center;
